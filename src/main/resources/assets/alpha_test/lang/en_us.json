@@ -1,0 +1,19 @@
+{
+  "item.alpha_test.bug": "Bug",
+  "item.alpha_test.clean_apple": "Clean Apple",
+  "item.alpha_test.clean_core": "Clean Core",
+  "item.alpha_test.clean_ingot": "Clean Ingot",
+  "item.alpha_test.3d_pickaxe": "3D Pickaxe",
+
+  "block.alpha_test.notexture_block": "No_Texture Block",
+  "block.alpha_test.cracked_notexture_block": "Cracked No_Texture Block",
+  "block.alpha_test.fake_notexture_block": "Fake No_Texture Block",
+  "block.alpha_test.notexture_lamp": "No_Texture Lamp",
+  "block.alpha_test.null": "Null",
+  "block.alpha_test.rainbow_block": "Rainbow Block",
+
+
+
+
+  "creativetab.alpha_test.alphatest" : "Alpha Test"
+}

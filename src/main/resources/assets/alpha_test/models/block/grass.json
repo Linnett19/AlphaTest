@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "alpha_test:block/alpha/grass"
+  },
+  "render_type": "cutout"
+}

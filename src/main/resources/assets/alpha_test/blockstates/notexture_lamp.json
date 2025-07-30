@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "alpha_test:block/notexture_lamp_off"
+    },
+    "lit=true": {
+      "model": "alpha_test:block/notexture_lamp_on"
+    }
+  }
+}

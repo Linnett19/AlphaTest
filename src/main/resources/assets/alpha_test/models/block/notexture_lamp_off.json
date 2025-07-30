@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "alpha_test:block/notexture/notexture_lamp_off"
+  }
+}

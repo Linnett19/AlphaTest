@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "north": "alpha_test:block/alpha/alpha_grass",
+    "south": "alpha_test:block/alpha/alpha_grass",
+    "east": "alpha_test:block/alpha/alpha_grass",
+    "west": "alpha_test:block/alpha/alpha_grass",
+    "up": "alpha_test:block/alpha/alpha_grass_top",
+    "down": "alpha_test:block/alpha/alpha_dirt"
+  }
+}
