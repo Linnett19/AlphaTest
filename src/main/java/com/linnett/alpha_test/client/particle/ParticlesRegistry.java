@@ -23,15 +23,6 @@ public class ParticlesRegistry {
 
 
 
-    public static final RegistryObject<ParticleType<BlockParticleOption>> SAND_PARTICLES = PARTICLE_TYPES.register("sand_particles", () -> new ParticleType<BlockParticleOption>(true, BlockParticleOption.DESERIALIZER) {
-        @Override
-        public Codec<BlockParticleOption> codec() {
-            Function<ParticleType<BlockParticleOption>, Codec<BlockParticleOption>> codec = BlockParticleOption::codec;
-            return (Codec)codec.apply(this);
-        }
-    });
-
-
 
     public static void register(IEventBus eventBus){
         PARTICLE_TYPES.register(eventBus);

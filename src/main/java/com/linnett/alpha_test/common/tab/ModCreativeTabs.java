@@ -31,10 +31,6 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.NO_TEXTURE_LAMP.get());
                         output.accept(ModBlocks.NULL.get());
 
-                        output.accept(ModItems.CLEAN_CORE.get());
-                        output.accept(ModItems.CLEAN_INGOT.get());
-                        output.accept(ModItems.CLEAN_APPLE.get());
-
                         output.accept(ModItems.THREE_D_PICKAXE.get());
                         output.accept(ModBlocks.RAINBOW_BLOCK.get());
 
@@ -43,6 +39,8 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.ALPHA_COBBLESTONE.get());
                         output.accept(ModBlocks.BLUE_ROSE.get());
                         output.accept(ModBlocks.GRASS.get());
+
+                        output.accept(ModBlocks.GLOW.get());
 
                     }).build());
 

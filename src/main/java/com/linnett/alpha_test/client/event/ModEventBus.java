@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Alpha_test.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class FaFEventBus {
+public class ModEventBus {
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
 

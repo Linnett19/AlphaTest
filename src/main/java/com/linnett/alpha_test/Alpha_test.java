@@ -5,6 +5,8 @@ import com.linnett.alpha_test.common.blocks.ModBlocks;
 import com.linnett.alpha_test.common.tab.ModCreativeTabs;
 import com.linnett.alpha_test.common.items.ModItems;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -49,6 +51,8 @@ public class Alpha_test {
     public static class ClientModEvents {
 
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {}
+        public static void clientSetup(FMLClientSetupEvent event) {
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOW.get(), RenderType.translucent());
+        }
     }
 }

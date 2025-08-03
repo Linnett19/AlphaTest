@@ -4,6 +4,7 @@ package com.linnett.alpha_test.common.blocks;
 import com.linnett.alpha_test.Alpha_test;
 import com.linnett.alpha_test.common.blocks.custom.CrackedNotextureBlock;
 import com.linnett.alpha_test.common.blocks.custom.FakeNotextureBlock;
+import com.linnett.alpha_test.common.blocks.custom.GlowBlock;
 import com.linnett.alpha_test.common.blocks.custom.NotextureLampBlock;
 import com.linnett.alpha_test.common.items.ModItems;
 import net.minecraft.world.effect.MobEffects;
@@ -64,6 +65,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> GRASS = registerBlock("grass",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS).noOcclusion().noCollission()));
 
+    public static final RegistryObject<Block> GLOW = registerBlock("glow", GlowBlock::new);
 
 
 
