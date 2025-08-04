@@ -19,6 +19,9 @@ public class ParticlesRegistry {
     public static final RegistryObject<SimpleParticleType> BUG_LIGHT = PARTICLE_TYPES.register("bug_light", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> BUG_WITHE = PARTICLE_TYPES.register("bug_withe", () -> new SimpleParticleType(true));
 
+    public static final RegistryObject<SimpleParticleType> GLOW = PARTICLE_TYPES.register("glow", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> GLOW_1 = PARTICLE_TYPES.register("glow_1", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> GLOW_2 = PARTICLE_TYPES.register("glow_2", () -> new SimpleParticleType(true));
 
 
 

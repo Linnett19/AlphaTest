@@ -5,6 +5,7 @@ import com.linnett.alpha_test.client.particle.ParticlesRegistry;
 import com.linnett.alpha_test.client.particle.custom.Dot;
 import com.linnett.alpha_test.client.particle.custom.DotLight;
 import com.linnett.alpha_test.client.particle.custom.DotWithe;
+import com.linnett.alpha_test.client.particle.custom.Glow;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,6 +18,9 @@ public class ModEventBus {
         event.registerSpriteSet(ParticlesRegistry.BUG_DARK.get(), Dot.Provider::new);
         event.registerSpriteSet(ParticlesRegistry.BUG_LIGHT.get(), DotLight.Provider::new);
         event.registerSpriteSet(ParticlesRegistry.BUG_WITHE.get(), DotWithe.Provider::new);
+        event.registerSpriteSet(ParticlesRegistry.GLOW.get(), Glow.Provider::new);
+        event.registerSpriteSet(ParticlesRegistry.GLOW_1.get(), Glow.Provider::new);
+        event.registerSpriteSet(ParticlesRegistry.GLOW_2.get(), Glow.Provider::new);
 
 
     }

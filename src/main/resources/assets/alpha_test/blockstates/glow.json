@@ -1,6 +1,5 @@
 {
   "variants": {
-    "level=0": { "model": "alpha_test:block/glow" },
     "level=1": { "model": "alpha_test:block/glow" },
     "level=2": { "model": "alpha_test:block/glow" },
     "level=3": { "model": "alpha_test:block/glow" },

@@ -1,7 +1,9 @@
 package com.linnett.alpha_test.common.blocks.custom;
 
+import com.linnett.alpha_test.client.particle.ParticlesRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -16,10 +18,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
-
 public class GlowBlock extends Block {
-    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 0, 15);
+    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, 15);
 
     public GlowBlock() {
         super(BlockBehaviour.Properties.of()
@@ -31,38 +31,38 @@ public class GlowBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(LEVEL, 1));
     }
 
-    // Метод для генерации частиц - вызывается автоматически Minecraft
-    public void animateTick(BlockState state, Level level, BlockPos pos, Random random) {
-        if (level.isClientSide) {
-            // Простая проверка - если игрок в радиусе 10 блоков держит этот блок
-            for (Player player : level.players()) {
-                if (player.distanceToSqr(pos.getX(), pos.getY(), pos.getZ()) <= 100) { // 10^2 = 100
-                    ItemStack mainHand = player.getMainHandItem();
-                    ItemStack offHand = player.getOffhandItem();
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (!level.isClientSide) return;
 
-                    if (mainHand.getItem() == this.asItem() || offHand.getItem() == this.asItem()) {
-                        // Генерация частиц в центре блока
-                        double x = pos.getX() + 0.5;
-                        double y = pos.getY() + 0.7;
-                        double z = pos.getZ() + 0.5;
+        for (Player player : level.players()) {
+            if (player.distanceToSqr(pos.getX(), pos.getY(), pos.getZ()) <= 100) {
+                ItemStack mainHand = player.getMainHandItem();
+                ItemStack offHand = player.getOffhandItem();
 
-                        // Основные частицы (100% шанс)
-                        level.addParticle(ParticleTypes.GLOW, x, y, z, 0, 0, 0);
+                boolean holdingBlock = mainHand.getItem() == this.asItem() || offHand.getItem() == this.asItem();
 
-                        // Дополнительные частицы (30% шанс)
-                        if (random.nextFloat() < 0.3) {
-                            level.addParticle(ParticleTypes.FLAME,
-                                    x, y, z,
-                                    (random.nextDouble() - 0.5) * 0.1,
-                                    (random.nextDouble() - 0.5) * 0.1,
-                                    (random.nextDouble() - 0.5) * 0.1
-                            );
-                        }
+                if (holdingBlock) {
+                    double x = pos.getX() + 0.5;
+                    double y = pos.getY() + 0.5;  // центр блока по высоте
+                    double z = pos.getZ() + 0.5;
+
+                    int levelValue = state.getValue(LEVEL);
+
+                    var particle = ParticlesRegistry.GLOW.get(); // default 1–5
+                    if (levelValue >= 6 && levelValue <= 10) {
+                        particle = ParticlesRegistry.GLOW_1.get(); // 6–10
+                    } else if (levelValue >= 11) {
+                        particle = ParticlesRegistry.GLOW_2.get(); // 11–15
                     }
+
+                    level.addParticle(particle, x, y, z, 0, 0, 0);
                 }
             }
         }
     }
+
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
